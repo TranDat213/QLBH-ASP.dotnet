@@ -1,0 +1,46 @@
+﻿@using Lab1_TranNguyenDat.Models
+@model Lab1_TranNguyenDat.Models.Nhanvien
+@{
+	Layout = null;
+}
+<h2>Xóa thông tin nhan vien</h2>
+<h3>Bạn muốn xóa nhan vien này ?</h3>
+<form method="post">
+	<div class="form-group">
+		<table border="1" cellpadding="5" cellspacing="0">
+			<tr>
+				<th>Tên nhan vien</th>
+				<th>Ngay sinh</th>
+				<th>Phai</th>
+				<th>Địa chỉ</th>
+				<th>Password</th>
+			</tr>
+			<tr>
+				<td>
+					<input type="hidden" name="manv" value="@Model.Manv" />
+					<label for="tennv">@Model.Tennv</label>
+				</td>
+				<td>
+					<label for="ngaysinh">@Model.Ngaysinh</label>
+				</td>
+				<td>
+					<label for="phai">@Model.Phai</label>
+				</td>
+				<td>
+					<label for="diachi">@Model.Diachi</label>
+				</td>
+				<td>
+					<label for="password">@Model.Password</label>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<br />
+	<div class="form-group">
+		<input type="submit" value="Xóa" />
+	</div>
+	<br />
+	<div>
+		<a href="@Url.Action("index")">Quay lại</a>
+	</div>
+</form> 

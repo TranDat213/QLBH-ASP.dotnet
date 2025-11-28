@@ -1,0 +1,42 @@
+﻿@{ 
+    Layout = null; 
+}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<form action="them" method="post" class="form-inline">
+    <div class="form-group"> 
+        <h2>Thêm nhà sản xuất</h2> 
+ 
+        <div class="form-group"> 
+            @*name trùng với tên field được binding*@ 
+            <b>Mã nhà sản xuất</b><br /> 
+            <input name="mansx" type="text" value="" maxlength="50" /><br 
+/><br /> 
+        </div> 
+ 
+        <div class="form-group"> 
+            <b>Tên nhà sản xuất</b><br /> 
+            <input name="tennsx" type="text" value="" maxlength="50" /><br 
+/><br /> 
+        </div> 
+ 
+        <div class="form-group"> 
+            <b>Địa chỉ</b><br /> 
+            <input name="diachi" type="text" value="" maxlength="50" /><br 
+/><br /> 
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn-success" /><br /><br />
+        </div>
+        <div>
+            <a href="@Url.Action("Index")" class="btn-warning">Quay lại</a>
+        </div>
+    </div>
+</form>

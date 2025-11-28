@@ -1,0 +1,31 @@
+﻿
+@model Lab1_TranNguyenDat.Models.Nhasanxuat
+@{
+    Layout = null;
+}
+<form action="sua" method="post">
+    <div class="form-horizontal">
+        <h2>Sửa thông tin nhà sản xuất</h2>
+        <div class="form-group">
+            @*name trùng với tên field được binding*@
+            <input name="mansx" type="hidden" value="@Model.Mansx" maxlength="50" /><br />
+        </div>
+        <div class="form-group">
+            <b>Tên nhà sản xuất</b><br />
+            <input name="tennsx" type="text" value="@Model.Tennsx" maxlength="50" /><br />
+        </div>
+        <br />
+        <div class="form-group">
+            <b>Địa chỉ</b><br />
+            <input name="diachi" type="text" value="@Model.Diachi" maxlength="50" /><br />
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Lưu" />
+        </div>
+        <br />
+        <div>
+            <a href="@Url.Action("Index")">Quay lại</a>
+        </div>
+    </div>
+</form> 

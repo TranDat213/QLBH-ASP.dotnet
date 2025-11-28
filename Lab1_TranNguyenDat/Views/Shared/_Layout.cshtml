@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet"
+		  href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+		  integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+		  crossorigin="anonymous">
+	@*<script src="https://kit.fontawesome.com/ee39434323.js"
+	crossorigin="anonymous"></script>*@
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+			crossorigin="anonymous"></script>
+	<title>Documents</title>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-header bg-secondary text-white">
+				Header
+			</div>
+			<div class="card-title">
+				<div class="row">
+					<div class="col-8">
+						<div class="nav nav-tabs">
+							<div class="nav-item bg-primary">
+								<div class="nav-link">
+									<a asp-action="Index" asp-controller="Home"
+									   class="text-white">Trang chủ</a>
+								</div>
+							</div>
+							<div class="nav-item bg-primary">
+								<div class="nav-link">
+									<a asp-action="Index" asp-controller="Home"
+									   class="text-white">Trang chủ</a>
+								</div>
+							</div>
+							<div class="nav-item bg-primary">
+								<div class="nav-link">
+									<a asp-action="Index" asp-controller="Home"
+									   class="text-white">Trang chủ</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="nav nav-tabs float-right">
+							<div class="nav-item bg-primary">
+								<div class="nav-link">
+									<a asp-action="Index" asp-controller="Home"
+									   class="text-white">Trang chủ</a>
+								</div>
+							</div>
+							@{
+								var session =
+								Context.Session.GetString("Khachhang");
+								if (session == null)
+								{
+									<div class="nav-item bg-info text-decoration-none">
+										<div class="nav-link text-decoration-none">
+											<a asp-action="indexdangnhap" asp
+											   controller="Khach" class="text-white text-decoration-none">
+												<i class="fa-solid
+	fa-right-to-bracket"></i> Đăng nhập
+											</a>
+										</div>
+									</div>
+								}
+								else
+								{
+									<div class="nav-item bg-danger text-decoration-none">
+										<div class="nav-link">
+											<a asp-action="dangxuat" asp
+											   controller="Khach" class="text-white">
+												<i class="fa-solid fa-right-from-
+	bracket"></i> Đăng xuất
+											</a>
+										</div>
+									</div>
+								}
+							}							
+								@{
+								
+								if (session == null)
+								{
+									<div class="nav-item bg-primary">
+										<div class="nav-link">
+											<a asp-action="dangky" asp
+											   controller="Khach" class="text-white text-decoration-none">Đăng ký</a>
+											   </div>
+									</div>
+								}
+								else
+								{
+									Khachhang kh =
+									JsonConvert.DeserializeObject<Khachhang>(session);
+									<div class="nav-item bg-primary">
+										<div class="nav-link">
+											<a href="@Url.Action("suaKH","Khach",new { id = kh.Makh})">
+												<p style="color:#ffff"><strong>@kh.Tenkh</strong></p>
+											</a>
+										</div>
+									</div>
+								}
+							}								
+								
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="card-body col-md-3">
+						<ul class="list-group">
+							<a asp-action="Index" asp-controller="NhaSanXuat"
+							   class="list-group-item bg-info text-decoration-none text-white">
+								Quản lý Nhà sản
+								xuất
+							</a>
+							<a asp-action="Index" asp-controller="NhanVien"
+							   class="list-group-item bg-info text-decoration-none text-white">
+								Quản lý Nhân
+								viên
+							</a>
+							<a asp-action="Index" asp-controller="Khach"
+							   class="list-group-item bg-info text-decoration-none text-white">
+								Quản lý Khách
+								hàng
+							</a>
+							<a asp-action="Index" asp-controller="LoaiHangHoa"
+							   class="list-group-item bg-info text-decoration-none text-white">
+								Quản lý Loại hàng
+								hóa
+							</a>
+							<a asp-action="Index" asp-controller="HangHoa"
+							   class="list-group-item bg-info text-decoration-none text-white">Quản lý Hàng hóa</a>
+						</ul>
+					</div>
+					<div class="container col-md-9">
+						@RenderBody()
+					</div>
+				</div>
+				<div class="card-footer bg-secondary text-white">
+					Footer
+				</div>
+			</div>
+		</div>
+	</div>
+
+	@RenderSection("Scripts", required: false)
+
+</body>
+</html>

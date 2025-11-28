@@ -1,0 +1,31 @@
+﻿@using Lab1_TranNguyenDat.Models
+@model Lab1_TranNguyenDat.Models.Loaihanghoa
+@{
+	Layout = null;
+}
+<h2>Xóa thông tin loai hang hoa</h2>
+<h3>Bạn muốn xóa loai hang hoa này ?</h3>
+<form method="post">
+	<div class="form-group">
+		<table border="1" cellpadding="5" cellspacing="0">
+			<tr>
+				<th>Tên loai hang hoa</th>
+			</tr>
+			<tr>
+				<td>
+					<input type="hidden" name="mansx" value="@Model.Maloai" />
+					<label for="tennsx">@Model.Tenloai</label>
+				</td>
+				
+			</tr>
+		</table>
+	</div>
+	<br />
+	<div class="form-group">
+		<input type="submit" value="Xóa" />
+	</div>
+	<br />
+	<div>
+		<a href="@Url.Action("index")">Quay lại</a>
+	</div>
+</form> 

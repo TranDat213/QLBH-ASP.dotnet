@@ -1,0 +1,89 @@
+﻿@using Lab1_TranNguyenDat.Models
+@model Lab1_TranNguyenDat.Models.Khachhang
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Đăng ký Tài Khoản</title>
+</head>
+<body>
+    @{
+        QLBHContext db = new QLBHContext();
+        List<SelectListItem> ls = new List<SelectListItem>();
+        ls.Add(new SelectListItem("Nam", "true"));
+        ls.Add(new SelectListItem("Nữ", "false"));
+    }
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2>Đăng ký tài khoản</h2>
+                <div asp-validation-summary="ModelOnly" class="text-danger">
+                    <span>Các lỗi cần khắc phục:</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <form action="dangky" method="post">
+                    <div class="form-group">
+                        <label asp-for="Makh" class="control-label"></label>
+                        <input asp-for="Makh" class="form-control"/>
+                        <span asp-validation-for="Makh" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Tenkh" class="control-label"></label>
+                        <input asp-for="Tenkh" class="form-control" />
+                        <span asp-validation-for="Tenkh" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Namsinh" class="control-label"></label>
+                        <input asp-for="Namsinh" type="number" class="form-control" />
+                        <span asp-validation-for="Namsinh" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <b>Phái</b><br />
+                        <div class="form-check form-check-inline">
+                            <label asp-for="Phai" class="control-label"></label>
+                           <select asp-for="Phai" asp-items="@ls" class="control-label"></select>
+                            <span asp-validation-for="Phai" class="text-danger"></span>
+                        </div>                    
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Dienthoai" class="control-label"></label>
+                        <input asp-for="Dienthoai" class="form-control" />
+                        <span asp-validation-for="Dienthoai" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Diachi" class="control-label"></label>
+                        <input asp-for="Diachi" class="form-control" />
+                        <span asp-validation-for="Diachi" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                    <div>
+                        <a href="@Url.Action("Index")" class="btn btn-secondary">Quay lại</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Lab1_TranNguyenDat.Models.Nhanvien>
+@{
+    Layout = "_Layout";
+}
+
+<h2>Thông tin các nhan vien</h2>
+
+<p>
+    <a href="@Url.Action("themNV")">Thêm mới</a>
+</p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Ma nhan vien</th>
+        <th>Tên nhan vien</th>
+        <th>Ngay sinh</th>
+        <th>Phai</th>
+        <th>Dia chi</th>
+        <th>Password</th>
+        <th>Tac vu</th>
+    </tr>
+    @{
+        //foreach (var item in ViewBag.nsx)
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Manv</td>
+                <td>@item.Tennv</td>
+                <td>@item.Ngaysinh</td>
+                <td>@item.Phai</td>
+                <td>@item.Diachi</td>
+                <td>@item.Password</td>
+                <td>
+                    <a href="@Url.Action("suaNV","NhanVien",new { id = item.Manv
+                        })">Sửa</a> |
+                    <a href="@Url.Action("xoaNV","NhanVien",new { id = item.Manv
+                        })">Xóa</a>
+                </td>
+            </tr>
+        }
+    }
+</table>
+

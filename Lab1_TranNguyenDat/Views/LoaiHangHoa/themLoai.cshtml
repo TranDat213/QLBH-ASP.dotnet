@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<form action="themLoai" method="post">
+    <div class="form-horizontal">
+        <h2>Thêm loai hang hoa</h2>
+
+        <div class="form-group">
+            @*name trùng với tên field được binding*@
+            <b>Mã loai</b><br />
+            <input name="maloai" type="text" value="" maxlength="50" /><br /><br />
+        </div>
+
+        <div class="form-group">
+            <b>Tên loai</b><br />
+            <input name="tenloai" type="text" value="" maxlength="50" /><br /><br />
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save" /><br /><br />
+        </div>
+        <div>
+            <a href="@Url.Action("Index")">Quay lại</a>
+        </div>
+    </div>
+</form>

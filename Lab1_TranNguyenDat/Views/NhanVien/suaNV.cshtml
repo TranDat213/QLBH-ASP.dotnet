@@ -1,0 +1,50 @@
+﻿@model Lab1_TranNguyenDat.Models.Nhanvien
+@{
+    Layout = null;
+}
+<form action="suaNV" method="post">
+    <div class="form-horizontal">
+        <h2>Sửa thông tin nhan vien</h2>
+        <div class="form-group">
+            @*name trùng với tên field được binding*@
+            <input name="manv" type="hidden" value="@Model.Manv" maxlength="50" /><br />
+        </div>
+        <div class="form-group">
+            <b>Tên nhan vien</b><br />
+            <input name="tennv" type="text" value="@Model.Tennv" maxlength="50" /><br />
+        </div>
+        <br />
+        <div class="form-group">
+            <b>Ngay sinh</b><br />
+            <input name="ngaysinh" type="date" value="@Model.Ngaysinh" maxlength="50" /><br />
+        </div>
+        <br />
+        <div class="form-group">
+            <b>Phai</b><br />
+            <input name="phai" type="radio" value="@Model.Phai" />
+            <label for="nam">Nam</label><br />
+            <input name="phai" type="radio" value="@Model.Phai" />
+            <label for="nu">Nu</label>
+            <br /><br />
+        </div>
+        <br />
+        <div class="form-group">
+            <b>Địa chỉ</b><br />
+            <input name="diachi" type="text" value="@Model.Diachi" maxlength="50" /><br />
+        </div>
+        <br />
+        <div class="form-group">
+            <b>Password</b><br />
+            <input name="password" type="password" value="@Model.Password" maxlength="50" /><br />
+        </div>
+        <br />
+
+        <div class="form-group">
+            <input type="submit" value="Lưu" />
+        </div>
+        <br />
+        <div>
+            <a href="@Url.Action("Index")">Quay lại</a>
+        </div>
+    </div>
+</form> 

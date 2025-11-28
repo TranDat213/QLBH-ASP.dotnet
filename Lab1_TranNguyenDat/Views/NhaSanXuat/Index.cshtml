@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "_Layout";
+}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<h2>Thông tin các nhà sản xuất</h2>
+
+<p>
+    <a href="@Url.Action("them")" class="btn btn-info">Thêm mới</a>
+</p>
+
+<table border="1" cellpadding="5" cellspacing="0" class="table">
+    <tr class="success">
+        <th>Ma nhà sản xuất</th>
+        <th>Tên nhà sản xuất</th>
+        @* <th><lable asp-for="Tennsx" class="control-label"></lable></th> *@
+        <th>Địa chỉ</th>
+        <th>Tac vu</th>
+    </tr>
+    @{
+        foreach (var item in ViewBag.nsx)
+        {
+            <tr class="danger">
+                <td>@item.Mansx</td>
+                <td>@item.Tennsx</td>
+                <td>@item.Diachi</td>
+                 <td> 
+                    <a href="@Url.Action("sua","Nhasanxuat",new { id = item.Mansx 
+                        })">Sửa</a> | 
+                    <a href="@Url.Action("xoa","Nhasanxuat",new { id = item.Mansx 
+                        })">Xóa</a> 
+                </td> 
+            </tr>
+        }
+    }
+</table>

@@ -1,0 +1,26 @@
+﻿@model Lab1_TranNguyenDat.Models.Loaihanghoa
+@{
+    Layout = null;
+}
+<form action="suaLHH" method="post">
+    <div class="form-horizontal">
+        <h2>Sửa thông tin loai hang hoa</h2>
+        <div class="form-group">
+            @*name trùng với tên field được binding*@
+            <input name="maloai" type="hidden" value="@Model.Maloai" maxlength="50" /><br />
+        </div>
+        <div class="form-group">
+            <b>Tên loai hang hoa</b><br />
+            <input name="tenloai" type="text" value="@Model.Tenloai" maxlength="50" /><br />
+        </div>
+        <br />
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Lưu" />
+        </div>
+        <br />
+        <div>
+            <a href="@Url.Action("Index")">Quay lại</a>
+        </div>
+    </div>
+</form> 
